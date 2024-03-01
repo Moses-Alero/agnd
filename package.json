@@ -3,11 +3,6 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "scripts": {
-    "build":"node index.js",
-    "start":"node index.js",
-    "dev": "node index.js"
-  },
   "type": "module",
   "dependencies": {
     "@prisma/client": "5.10.2",
