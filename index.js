@@ -1,7 +1,7 @@
 import * as dotenv from "dotenv";
 dotenv.config();
 import express from "express";
-import { createHash } from "crypto";
+import cors from 'cors'
 import { v2 } from "cloudinary";
 import multer from "multer";
 import { prisma } from "./prisma.js";
@@ -18,6 +18,7 @@ const upload = multer({ storage });
 
 const app = express();
 app.use(express.json());
+app.use(cors('*'))
 
 app.get("/", (req, res) => {
   res.send({ message: "Welcome AgborNigidi" });
