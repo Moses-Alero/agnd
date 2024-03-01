@@ -4,9 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build":"node index.js",
-    "start":"node index.js",
-    "dev": "node index.js"
+    "build":"node -r dotenv/config index.js",
+    "start":"node -r dotenv/config index.js",
+    "dev": "node -r dotenv/config index.js"
   },
   "type": "module",
   "dependencies": {
