@@ -1,0 +1,57 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// schema.prisma
+
+// Define model for the person
+model User {
+  id            Int            @id @default(autoincrement())
+  fullName      String
+  fathersName   String?
+  mothersName   String?
+  community     String
+  dateOfBirth   DateTime
+  gender        Gender
+  placeOfBirth  String?
+  levelInSchool LevelInSchool?
+  schoolName    String?
+  schoolAddress String?
+  hasSkill      Boolean        @default(false)
+  wantToLearn   SkillInterest
+  skillType     String?
+  mentorship    Boolean        @default(false)
+  passport      String?
+}
+
+// Enum for gender
+enum Gender {
+  MALE
+  FEMALE
+}
+
+// Enum for level in school
+enum LevelInSchool {
+  PRIMARY
+  POST_PRIMARY
+  TERTIARY
+  UNDERGRADUATE
+  POST_GRADUATE
+}
+
+// Enum for interest in learning skill
+enum SkillInterest {
+  NOW
+  FUTURE
+}
