@@ -78,6 +78,7 @@ app.get("/all", async (req, res) => {
 
 app.post("/login", (req, res) => {
   try {
+    console.log(req.body);
     const username = createHash("md5").update(req.body.phone).digest("hex");
     const password = createHash("md5").update(req.body.password).digest("hex");
 
