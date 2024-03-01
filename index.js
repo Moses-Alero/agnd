@@ -8,15 +8,13 @@ import { prisma } from "./prisma.js";
 
 v2.config({
   cloud_name: "alero",
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
+  api_key: "356388273169343",
+  api_secret: "ERw3AQeeCW6J7dSuxTlTM9dYE30",
 });
 
 const storage = multer.diskStorage({});
 const upload = multer({ storage });
 
-const adminHash = process.env.ADMIN_HASH;
-const passwordHash = process.env.PASSWORD_HASH;
 
 const app = express();
 app.use(express.json());
@@ -79,19 +77,18 @@ app.get("/all", async (req, res) => {
 app.post("/login", (req, res) => {
   try {
     console.log(req.body);
-    const username = createHash("md5").update(req.body.phone).digest("hex");
-    const password = createHash("md5").update(req.body.password).digest("hex");
+  
 
-    if (adminHash !== username) {
+    if (req.body.username !== "admin") {
       res.send({ message: "Wrong password or username" });
       return;
     }
-    if (password !== passwordHash) {
+    if (req.body.password !== "password") {
       res.send({ message: "Wrong password or username" });
       return;
     }
 
-    res.send({ token: process.env.TOKEN });
+    res.send({ token: "21232f297a57a5a743894a0e4a801fc3" });
   } catch (error) {
     console.log(error);
     return res.send({ error: "An Error occurred" });
