@@ -113,6 +113,6 @@ app.post("/upload/:id", upload.single("image"), async (req, res) => {
   }
 });
 
-app.listen(8000, '0.0.0.0' ,() => {
+app.listen(8008, '0.0.0.0' ,() => {
   console.log("server is running on port http://localhost:8000");
 });
